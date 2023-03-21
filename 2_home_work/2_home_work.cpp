@@ -6,7 +6,8 @@ private:
 	int* arr;
 	int index_ = 0;
 public:
-	smart_array& operator= (const smart_array&) = delete;
+	
+
 
 	smart_array(int size_) {
 		size = size_;
@@ -16,6 +17,7 @@ public:
 		}
 	}
 	smart_array(const smart_array& new_array) {
+		index_ = new_array.index_;
 		size = new_array.size;
 		arr = new int[size];
 		for (int i = 0; i < size; ++i) {
@@ -52,9 +54,10 @@ public:
 		}
 	}
 
-	smart_array& operator=(smart_array& new_array) {
+	smart_array& operator=(const smart_array& new_array) {
 		if (this != &new_array) {
 			delete[] arr;
+			index_ = new_array.index_;
 			size = new_array.size;
 			arr = new int[size];
 			for (int i = 0; i < size; ++i) {

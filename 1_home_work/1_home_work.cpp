@@ -7,6 +7,7 @@ private:
 	int index_ = 0;
 public:
 	smart_array(const smart_array&) = delete;
+	smart_array& operator=(const smart_array&) = delete;
 
 	smart_array(int size_) {
 		size = size_;
